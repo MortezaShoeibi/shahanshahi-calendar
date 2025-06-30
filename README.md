@@ -9,7 +9,7 @@ A Persian Imperial (Shahanshahi) calendar system based on the Jalali calendar wi
 
 ## Install
 ```bash
-pip install shahanshahi_calendar
+pip install shahanshahi-calendar
 ```
 ## Example
 ```python
