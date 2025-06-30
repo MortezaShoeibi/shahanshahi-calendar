@@ -88,22 +88,32 @@ class ImperialDate:
     
     @property
     def day_name_fa(self) -> str:
+        """Returns the Persian name of the day in the Imperial calendar.
+        Leap day is handled separately.
+        """
         if self.isleap() and self.month == 12 and self.day == 30:
             return IMPERIAL_DAY_NAMES.get("leap", ("نام‌ناشناس", ""))[0]
         return IMPERIAL_DAY_NAMES.get(self.day, ("نام‌ناشناس", ""))[0]
 
     @property
     def day_name_en(self) -> str:
+        """Returns the English name of the day in the Imperial calendar.
+        Leap day is handled separately.
+        """
         if self.isleap() and self.month == 12 and self.day == 30:
             return IMPERIAL_DAY_NAMES.get("leap", ("", "Unknown"))[1]
         return IMPERIAL_DAY_NAMES.get(self.day, ("", "Unknown"))[1]
     
     @property
     def occasions_fa(self) -> str:
+        """Returns the Persian name of the cultural occasion for this date, if any.
+        """
         return IMPERIAL_OCCASIONS[self.month].get(self.day, ("مناسبتی ندارد.", ""))[0]
 
     @property
     def occasions_en(self) -> str:
+        """Returns the English name of the cultural occasion for this date, if any.
+        """
         return IMPERIAL_OCCASIONS[self.month].get(self.day, ("", "Not an IMPERIAL OCCASIONS."))[1]
 
     def day_name(self, locale: str = 'fa') -> str:
@@ -113,19 +123,23 @@ class ImperialDate:
         return self.get_day_info(locale=locale)['occasion']
 
     def isleap(self) -> bool:
+        """Checks if the current Imperial year is a leap year.
+        """
         return self.year % 33 in (1, 5, 9, 13, 17, 22, 26, 30,)
 
     def togregorian(self) -> date:
+        """Converts this ImperialDate to a Gregorian date.
+        """
         return self._jalali_date.togregorian()
 
     def strftime(self, fmt: str) -> str:
+        """Formats the date using strftime, replacing the Jalali year with the Imperial year.
+        """
         result = self._jalali_date.strftime(fmt)
-        # Replace internal year with the adjusted Imperial year
         return result.replace(str(self._jalali_date.year), str(self.year))
 
     def get_day_info(self, locale: str = "fa") -> dict:
-        """
-        Returns day name and occasion name based on locale.
+        """Returns day name and occasion name based on locale.
         
         :param locale: Either 'fa' (Persian) or 'en' (English).
         :return: Dictionary with 'day_name' and 'occasion'.
@@ -144,11 +158,15 @@ class ImperialDate:
 
     @classmethod
     def fromgregorian(cls, **kwargs) -> 'ImperialDate':
+        """Creates an ImperialDate from a Gregorian date.
+        """
         jalali = jdatetime.date.fromgregorian(**kwargs)
         return cls(jalali.year + 1180, jalali.month, jalali.day, jalali.locale)
 
     @classmethod
     def today(cls, locale: Union[str, None] = None) -> 'ImperialDate':
+        """Returns today's date in the Imperial calendar.
+        """
         jalali = jdatetime.date.today()
         return cls(jalali.year + 1180, jalali.month, jalali.day, jalali.locale)
 
@@ -199,14 +217,20 @@ class ImperialDateTime:
         return self._jalali_dt.tzinfo
 
     def togregorian(self) -> datetime:
+        """Converts this ImperialDateTime to a Gregorian datetime.
+        """
         return self._jalali_dt.togregorian()
 
     def strftime(self, fmt: str) -> str:
+        """Formats the datetime using strftime, replacing the Jalali year with the Imperial year.
+        """
         result = self._jalali_dt.strftime(fmt)
         return result.replace(str(self._jalali_dt.year), str(self.year))
 
     @classmethod
     def fromgregorian(cls, **kwargs) -> 'ImperialDateTime':
+        """Creates an ImperialDateTime from a Gregorian datetime.
+        """
         jalali = jdatetime.datetime.fromgregorian(**kwargs)
         return cls(
             jalali.year + 1180, jalali.month, jalali.day,
@@ -216,6 +240,8 @@ class ImperialDateTime:
 
     @classmethod
     def now(cls, tz=None) -> 'ImperialDateTime':
+        """Returns the current datetime in the Imperial calendar.
+        """
         jalali = jdatetime.datetime.now(tz)
         return cls(
             jalali.year + 1180, jalali.month, jalali.day,
