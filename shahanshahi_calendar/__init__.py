@@ -104,7 +104,7 @@ class ImperialDate:
         return cls(jalali.year + 1180, jalali.month, jalali.day, jalali.locale)
 
     @classmethod
-    def today(cls, locale: str | None = None) -> 'ImperialDate':
+    def today(cls, locale: Union[str, None] = None) -> 'ImperialDate':
         jalali = jdatetime.date.today()
         return cls(jalali.year + 1180, jalali.month, jalali.day, jalali.locale)
 
@@ -121,7 +121,7 @@ class ImperialDateTime:
         self._jalali_dt = jdatetime.datetime(
             year - 1180, month, day, hour, minute, second, microsecond, tzinfo=tzinfo
         )
-        
+
     @property
     def year(self) -> int:
         return self._jalali_dt.year + 1180
