@@ -100,11 +100,11 @@ class ImperialDate:
     
     @property
     def occasions_fa(self) -> str:
-        return IMPERIAL_OCCASIONS[self.month].get(self.day, ("ندارد", ""))[0]
+        return IMPERIAL_OCCASIONS[self.month].get(self.day, ("مناسبتی ندارد.", ""))[0]
 
     @property
     def occasions_en(self) -> str:
-        return IMPERIAL_OCCASIONS[self.month].get(self.day, ("", "Not an IMPERIAL OCCASIONS"))[1]
+        return IMPERIAL_OCCASIONS[self.month].get(self.day, ("", "Not an IMPERIAL OCCASIONS."))[1]
 
     def day_name(self, locale: str = 'fa') -> str:
         return self.get_day_info(locale=locale)['day_name']
