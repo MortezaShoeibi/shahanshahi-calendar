@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='shahanshahi_calendar',
-    version='0.1.0',
+    version='0.1.1',
     description='The Imperial (Shahanshahi) calendar system for Python',
     author='Morteza Shoeibi',
     author_email='mortezashoeibi77@gmail.com',

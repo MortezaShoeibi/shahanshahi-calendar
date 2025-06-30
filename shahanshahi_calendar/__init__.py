@@ -41,7 +41,7 @@ Example:
 
 
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 # Third party modules
 import jdatetime
@@ -52,8 +52,8 @@ import datetime
 from datetime import date
 
 # Local modules
-from day_names import IMPERIAL_DAY_NAMES
-from occasions import IMPERIAL_OCCASIONS
+from shahanshahi_calendar.day_names import IMPERIAL_DAY_NAMES
+from shahanshahi_calendar.occasions import IMPERIAL_OCCASIONS
 
 
 
