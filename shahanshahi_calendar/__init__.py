@@ -121,3 +121,69 @@ class ImperialDateTime:
         self._jalali_dt = jdatetime.datetime(
             year - 1180, month, day, hour, minute, second, microsecond, tzinfo=tzinfo
         )
+        
+    @property
+    def year(self) -> int:
+        return self._jalali_dt.year + 1180
+
+    @property
+    def month(self) -> int:
+        return self._jalali_dt.month
+
+    @property
+    def day(self) -> int:
+        return self._jalali_dt.day
+
+    @property
+    def hour(self) -> int:
+        return self._jalali_dt.hour
+
+    @property
+    def minute(self) -> int:
+        return self._jalali_dt.minute
+
+    @property
+    def second(self) -> int:
+        return self._jalali_dt.second
+
+    @property
+    def microsecond(self) -> int:
+        return self._jalali_dt.microsecond
+
+    @property
+    def tzinfo(self) -> Union[Any, None]:
+        return self._jalali_dt.tzinfo
+
+    def togregorian(self) -> datetime:
+        return self._jalali_dt.togregorian()
+
+    def strftime(self, fmt: str) -> str:
+        result = self._jalali_dt.strftime(fmt)
+        return result.replace(str(self._jalali_dt.year), str(self.year))
+
+    @classmethod
+    def fromgregorian(cls, **kwargs) -> 'ImperialDateTime':
+        jalali = jdatetime.datetime.fromgregorian(**kwargs)
+        return cls(
+            jalali.year + 1180, jalali.month, jalali.day,
+            jalali.hour, jalali.minute, jalali.second,
+            jalali.microsecond, jalali.tzinfo
+        )
+
+    @classmethod
+    def now(cls, tz=None) -> 'ImperialDateTime':
+        jalali = jdatetime.datetime.now(tz)
+        return cls(
+            jalali.year + 1180, jalali.month, jalali.day,
+            jalali.hour, jalali.minute, jalali.second,
+            jalali.microsecond, jalali.tzinfo
+        )
+
+    def __str__(self) -> str:
+        return f"{self.year:04}-{self.month:02}-{self.day:02} {self.hour:02}:{self.minute:02}:{self.second:02}"
+
+    def __repr__(self) -> str:
+        return (
+            f"ImperialDateTime({self.year}, {self.month}, {self.day}, "
+            f"{self.hour}, {self.minute}, {self.second}, {self.microsecond})"
+        )
