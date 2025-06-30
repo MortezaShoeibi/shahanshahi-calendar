@@ -39,4 +39,3 @@ print(today.day_name_en) # e.g Azar
   - Add detailed documentation for `IMPERIAL_DAY_NAMES` and `IMPERIAL_OCCASIONS`, including their Zoroastrian origins and usage examples.
   - Provide a clear roadmap for planned features, such as expanded localization and cultural event recognition.
   - Include examples of how to use day names and occasions in both Persian and English contexts.
-- **Add unit tests**: Implement comprehensive unit tests for `ImperialDate` and `ImperialDateTime`, covering edge cases like leap days, invalid dates, and locale-specific outputs.
