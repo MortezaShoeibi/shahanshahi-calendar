@@ -1,3 +1,47 @@
+"""Imperial Date and Time
+=======================
+A date and time module based on the Imperial (Shahanshahi) calendar system.
+
+This calendar adds 1180 years to the Jalali (Persian) calendar, aligning it 
+with the ancient imperial chronology of Iran, often used by monarchists and
+cultural historians to reflect continuity from the foundation of the Persian Empire.
+
+Features:
+- Support for Imperial dates and datetimes.
+- Conversion to and from Gregorian dates.
+- Custom strftime handling with adjusted imperial year.
+- (Planned) Day name localization and cultural event recognition.
+
+@Author: Morteza Shoeibi (mortezashoeibi77@gmail.com)
+
+@Version: First stable draft - 2584/04/08 (corresponds to 2025/06/29)
+
+Licensing:
+--------
+Imperial (Shahanshahi) Calendar Module
+Copyright (c) 2025 Morteza Shoeibi <mortezashoeibi77@gmail.com>
+Licensed under the Python Software Foundation License.
+
+This module depends on jdatetime:
+jdatetime is (c) 2010-2018 Milad Rastian <eslashmili at gmail.com>.
+Licensed under the Python Software Foundation License.
+See https://docs.python.org/3/license.html for details.
+
+Usage:
+------
+Import `ImperialDate` and `ImperialDateTime` to work with dates in the
+Shahanshahi (Persian Imperial) calendar system.
+
+Example:
+--------
+>>> from shahanshahi_calendar import ImperialDate
+>>> date = ImperialDate.today()
+>>> print(date)  # 2584-04-08 
+"""
+
+
+
+VERSION = "0.1.0"
 
 # Third party modules
 import jdatetime

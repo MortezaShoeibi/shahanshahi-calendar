@@ -1,3 +1,28 @@
+"""Imperial Day Names Dictionary
+=============================
+
+Provides the traditional names assigned to each day of the month
+in the Imperial (Shahanshahi) calendar system, consistent with
+Zoroastrian practice.
+Each day of every month carries a unique spiritual or divine name
+in the Zoroastrian tradition—many of which are deities or elements
+of nature— and is preserved here for localization and cultural 
+reflection.
+
+Format:
+-------
+IMPERIAL_DAY_NAMES = {
+    <day_number>: ("<Persian Name>", "<English Name>"),
+    ...
+    "leap": ("<Persian Leap Day Name>", "<English Leap Day Name>")
+}
+
+Example:
+--------
+>>> IMPERIAL_DAY_NAMES[6]
+("خرداد", "Khordad")
+"""
+
 IMPERIAL_DAY_NAMES = {
     1: ("هورمزد", "Hormozd"),
     2: ("بهمن", "Bahman"),

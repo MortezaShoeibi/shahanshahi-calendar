@@ -1,3 +1,31 @@
+"""Imperial Occasions Dictionary
+=============================
+
+Contains mappings of imperial calendar dates to culturally significant 
+ancient Persian celebrations and commemorative occasions.
+
+This dictionary is structured by month and day, enabling access to
+events in both Persian (FA) and English (EN).
+These events are drawn from pre-Islamic Zoroastrian and imperial 
+traditions, including Nowruz, Sadeh, Mehregan, and other seasonal
+festivals aligned with the ancient Aryan worldview.
+
+Format:
+-------
+IMPERIAL_OCCASIONS = {
+    <month_number>: {
+        <day_number>: ("<Persian Name>", "<English Name>"),
+        ...
+    },
+    ...
+}
+
+Example:
+--------
+>>> IMPERIAL_OCCASIONS[1][1]
+("نوروز", "Nowruz")
+"""
+
 IMPERIAL_OCCASIONS = {
     1: {
         1: ("نوروز", "Nowruz"),
